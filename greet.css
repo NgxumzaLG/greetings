@@ -1,0 +1,109 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic);
+
+/* UNIVERSAL.. */
+
+* {
+    font-family: 'Lato', Helvetica, sans-serif;
+    color: #333447;
+    line-height: 1.5;
+}
+
+body {
+    background-color: rgb(243, 159, 3, 0.2);
+    padding: 0;   
+    margin: 0;
+}
+
+input {
+    line-height: normal;
+}
+
+
+/* UTILITIES */
+
+.container {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+/* HEADER... */
+
+.header {
+    border-bottom: 0.3px solid blue;
+}
+
+.greet-header {
+    width: 100px;
+    text-align: center;
+}
+
+/* SHOWCASE... */
+
+.showcase {
+    height: calc (100vh - 100px);
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    padding: 15px;
+}
+
+.name-textbox {
+    font-size: 25px;
+    margin: 10px;
+}
+
+/* .greet-header .name-textbox {
+    display: flex;
+    justify-content: space-around;
+} */
+
+.nameText {
+    margin: 5px;
+    font-size: 18px;
+}
+
+/* .radio-btn label {
+    font-size: 20px;
+}
+
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+} */
+
+.radio-btn {
+    display: inline-flex;
+    margin: 10px;
+    padding: 5px;
+    font-size: 20px;
+}
+
+.radio-lang {
+    margin: 5px;
+}
+
+.container .greet-body {
+    justify-content: center;
+}
+
+.greet-message, .test {
+    width: auto;
+    height: 50px;
+    background-color: orchid;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px;
+    margin: 7px;
+    justify-content: center;
+    align-content: center;
+}
+
+.greetBtn {
+    /* width: 100px;
+    height: auto; */
+    padding: 5px;
+    margin: 5px;
+    font-size: large;
+    font-weight: bold;
+}
