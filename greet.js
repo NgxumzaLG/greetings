@@ -5,28 +5,101 @@
     var messageField = document.querySelector(".greet-message");
     var nameCounter = document.querySelector(".counter");
     var testField = document.querySelector(".test")
+    var refreshButton = document.querySelector(".refreshBtn")
 
 //add an event listener for when buttons are pressed
     greetButton.addEventListener('click', greetUser);
+    refreshButton.addEventListener('click', refreshPage)
 
 // add functions for the events
-    let greetFactory = greeting();
+    
+    var strCheckedRadioBtn = "";
+    let  namesGreeted; 
+
+    if (localStorage['names']) {
+        namesGreeted = JSON.parse(localStorage.getItem("names"));
+
+    }
+   
+    let greetFactory = greeting(namesGreeted);
+
+    nameCounter.innerHTML = greetFactory.getCounter();
 
     function greetUser() {
 
+        messageField.classList.remove('proceed');
+        messageField.classList.remove('error');
+
         greetFactory.setName(textboxName.value);
-        // greetFactory.addNames(textboxName.value);
+      
     
-
         var checkedRadioBtn = document.querySelector("input[name='language']:checked");
-        greetFactory.greetMe(checkedRadioBtn.value);
-        greetFactory.addNames(textboxName.value)
-
-        console.log(textboxName.value)
-
-        messageField.innerHTML = greetFactory.greetMe(checkedRadioBtn.value);
-        nameCounter.innerHTML = greetFactory.getCounter()
-        testField.innerHTML= greetFactory.namesAdded()
-        console.log(greetFactory.namesAdded())
         
+       // greetFactory.greetMe(textboxName.value,checkedRadioBtn.value);
+       if(checkedRadioBtn){
+            strCheckedRadioBtn = checkedRadioBtn.value;
+
+       }
+       greetFactory.addNames(textboxName.value, strCheckedRadioBtn);
+
+    //    if (greetFactory.greetMe(textboxName.value, strCheckedRadioBtn)) {
+    //         ;
+
+    //    }
+
+       
+    // console.log(textboxName.value, checkedRadioBtn.value);
+    if (textboxName.value !== ''){
+        if ( strCheckedRadioBtn !== '') {
+            messageField.innerHTML= greetFactory.greetMe(strCheckedRadioBtn);
+            textboxName.value = '';
+            document.getElementById('radio-lang1').checked = false;
+            document.getElementById('radio-lang2').checked = false;
+            document.getElementById('radio-lang3').checked = false;
+            strCheckedRadioBtn = ""
+
+        } else {
+            setTimeout(function(){ 
+                messageField.innerHTML= "Error! language not selected"
+                messageField.classList.remove('proceed');
+                messageField.classList.add('error');
+            }, 0);
+
+            setTimeout(function(){ 
+                messageField.innerHTML = "Please select any language";
+                messageField.classList.remove('error');
+                messageField.classList.add('proceed');
+            }, 3500)
+
+        }
+
+    } else {
+        setTimeout(function(){ 
+            messageField.innerHTML= "Error! name not entered"
+            messageField.classList.remove('proceed');
+            messageField.classList.add('error');
+        }, 0);
+        setTimeout(function(){ 
+            messageField.innerHTML = "Please enter the name";
+            messageField.classList.remove('error');
+            messageField.classList.add('proceed');
+        }, 3500)
+
+    }
+       
+        localStorage.setItem("names", JSON.stringify(greetFactory.namesAdded()));
+
+        nameCounter.innerHTML = greetFactory.getCounter();
+        // testField.innerHTML= greetFactory.namesAdded()
+        // console.log(localStorage)
+
+        // greetFactory.errorClassList
+
+        // textboxName.value = ""
+        
+    }
+
+    function refreshPage() {
+        localStorage.clear();
+        location.reload();
     }

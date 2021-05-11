@@ -15,7 +15,8 @@ body {
 }
 
 input {
-    line-height: normal;
+    padding: 5px;
+    height: 25px;
 }
 
 
@@ -80,7 +81,7 @@ input[type="radio"] {
 }
 
 .radio-lang {
-    margin: 5px;
+    margin: 5px 10px 10px 25px;
 }
 
 .container .greet-body {
@@ -89,21 +90,52 @@ input[type="radio"] {
 
 .greet-message, .test {
     width: auto;
-    height: 50px;
+    height: 55px;
     background-color: orchid;
     font-size: 25px;
     font-weight: bold;
     padding: 20px;
-    margin: 7px;
+    margin: 9px;
     justify-content: center;
     align-content: center;
+    color:white;
+    text-align: center;
 }
 
-.greetBtn {
-    /* width: 100px;
-    height: auto; */
+.greetBtn, .refreshBtn {
+    width: 120px;
+    height: auto;
     padding: 5px;
     margin: 5px;
     font-size: large;
+    font-weight: bold;
+    border:2px solid blue;
+    border-radius: 5px;
+    background-color: transparent;
+}
+.greetBtn:hover, .refreshBtn:hover{
+    transform: scale(1.1);
+}
+
+.counter {
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.count {
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+}
+
+/* CLASSLIST... */
+
+.error {
+    color: crimson;
+    font-weight: bold;
+} 
+
+.proceed {
+    color: white;
     font-weight: bold;
 }

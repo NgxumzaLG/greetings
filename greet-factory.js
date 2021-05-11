@@ -1,55 +1,75 @@
 
-function greeting() {
+function greeting(namesData) {
     var theName = "";
-    var storeNames = [];
+    var storeNames = namesData || {};
     var counter = 0;
 
     function setName(myName) {
         if (myName !== "" ) {
-            theName = myName.trim();
+            theName = myName.trim();   
            
         }
-
     }
 
     function getName() {
-        return theName;
+        return  theName.charAt(0).toUpperCase() + theName.slice(1).toLowerCase();
 
     }
 
     function greetMe(checkedLanguage) {
-        if (checkedLanguage === "english") {
-            return "Hello, " + getName();;
+            if (checkedLanguage === "english") {
+                return "Hello, " + getName() ;
+ 
+            } else if (checkedLanguage === "afrikaans") {
+                return "Hallo, " + getName();
 
-        } else if (checkedLanguage === "afrikaans") {
-            return "Hallo, " + getName();;
+            } else if (checkedLanguage === "isixhosa") {
+                return "Molo, " + getName();
 
-        } else if (checkedLanguage === "isixhosa") {
-            return "Molo, " + getName();;
-
-        }
-
+            } 
     }
 
-    function addNames(name) {
-        if(!storeNames.includes(name)) {
-            storeNames.push(name)
-            counter++
+    // function nameTextError() {
+    //     return ;
+
+    // }
+
+    // function radioBtnError() {
+    //     return ;
+
+    // }
+
+    function addNames(name, lang) {
+        if(name !=="" && lang !== ""){
+            var strName = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+            if(!storeNames[strName]) {
+                storeNames[strName] = 1;
+                counter++;
+                
+            }else {
+                storeNames[strName]++;
+
+            }
         }
-        // for (var i =0; i<storeNames.length; i++)
-        // if (storeNames[i] !== theName) {
-        //     storeNames.push(theName);
-        //     counter++
-        // }
+        
     }
 
     function getCounter(){
-        return counter;
+        return Object.keys(storeNames).length;
+
     }
 
     function namesAdded(){ 
-        return storeNames
+        return storeNames;
+
     }
+
+    // function errorClassList() {
+    //     if (nameTextError() || radioBtnError()) {
+    //         return 'error'
+
+    //     }
+    // }
 
     return {
         setName,
@@ -57,7 +77,10 @@ function greeting() {
         greetMe,
         addNames,
         getCounter,
-        namesAdded
+        namesAdded,
+        // nameTextError,
+        // radioBtnError,
+        // errorClassList
 
     }
 }
