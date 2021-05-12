@@ -56,7 +56,7 @@
             document.getElementById('radio-lang1').checked = false;
             document.getElementById('radio-lang2').checked = false;
             document.getElementById('radio-lang3').checked = false;
-            strCheckedRadioBtn = ""
+            strCheckedRadioBtn = "";
 
         } else {
             setTimeout(function(){ 

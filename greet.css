@@ -37,6 +37,8 @@ input {
 .greet-header {
     width: 100px;
     text-align: center;
+    justify-content: center;
+    align-content: center;
 }
 
 /* SHOWCASE... */
@@ -54,11 +56,6 @@ input {
     margin: 10px;
 }
 
-/* .greet-header .name-textbox {
-    display: flex;
-    justify-content: space-around;
-} */
-
 .nameText {
     margin: 5px;
     font-size: 18px;
@@ -66,11 +63,6 @@ input {
 
 /* .radio-btn label {
     font-size: 20px;
-}
-
-input[type="radio"] {
-    box-sizing: border-box;
-    padding: 0;
 } */
 
 .radio-btn {
@@ -138,4 +130,34 @@ input[type="radio"] {
 .proceed {
     color: white;
     font-weight: bold;
+}
+
+/* MEDIA QUERY... */
+
+@media screen and (max-width: 470px) {
+
+    .nameText {
+        margin: 5px 0;
+    }
+    .greet-body .radio-btn {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .radio-lang {
+        margin: 5px;
+    }
+
+    .radio-btn {
+        /* margin: 10px; */
+        text-align: left;
+        padding: 5px;
+        font-size: 20px;
+    }
+
+    .greet-message {
+        min-height: 55px;
+        height: auto;
+    }
+    
 }
