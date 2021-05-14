@@ -3,6 +3,7 @@ function greeting(namesData) {
     var theName = "";
     var storeNames = namesData || {};
     var counter = 0;
+    const RegExp = /[A-Za-z]/;
 
     function setName(myName) {
         if (myName !== "" ) {
@@ -29,27 +30,19 @@ function greeting(namesData) {
             } 
     }
 
-    // function nameTextError() {
-    //     return ;
-
-    // }
-
-    // function radioBtnError() {
-    //     return ;
-
-    // }
-
     function addNames(name, lang) {
         if(name !=="" && lang !== ""){
-            var strName = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
-            if(!storeNames[strName]) {
-                storeNames[strName] = 1;
-                counter++;
-                
-            }else {
-                storeNames[strName]++;
+            if (name.match(RegExp)) {
+                var strName = name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+                if(!storeNames[strName]) {
+                    storeNames[strName] = 1;
+                    counter++;
+                    
+                }else {
+                    storeNames[strName]++;
 
-            }
+                }
+            } 
         }
         
     }
@@ -64,13 +57,6 @@ function greeting(namesData) {
 
     }
 
-    // function errorClassList() {
-    //     if (nameTextError() || radioBtnError()) {
-    //         return 'error'
-
-    //     }
-    // }
-
     return {
         setName,
         getName,
@@ -78,9 +64,6 @@ function greeting(namesData) {
         addNames,
         getCounter,
         namesAdded,
-        // nameTextError,
-        // radioBtnError,
-        // errorClassList
 
     }
 }
