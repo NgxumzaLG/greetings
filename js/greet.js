@@ -52,33 +52,54 @@
 
        
     // console.log(textboxName.value, checkedRadioBtn.value);
-    if (strNames !== "") {
-        if (strNames.match(RegExp)) {
-            if ( strCheckedRadioBtn !== '') {
-                setTimeout(function() { 
-                    messageField.innerHTML= greetFactory.greetMe(strCheckedRadioBtn);
-                    textboxName.value = '';
-                    document.getElementById('radio-lang1').checked = false;
-                    document.getElementById('radio-lang2').checked = false;
-                    document.getElementById('radio-lang3').checked = false;
-                    strCheckedRadioBtn = "";
-                }, 0);
+        if (strNames !== "") {
+            if (strNames.match(RegExp)) {
+                if ( strCheckedRadioBtn !== '') {
+                    setTimeout(function() { 
+                        messageField.innerHTML= greetFactory.greetMe(strCheckedRadioBtn);
+                        textboxName.value = '';
+                        document.getElementById('radio-lang1').checked = false;
+                        document.getElementById('radio-lang2').checked = false;
+                        document.getElementById('radio-lang3').checked = false;
+                        strCheckedRadioBtn = "";
+                    }, 0);
 
-                setTimeout(function() { 
-                    messageField.innerHTML = "";
-                    messageField.classList.remove('error');
-                    messageField.classList.remove('proceed');
-                }, 5500);
+                    setTimeout(function() { 
+                        messageField.innerHTML = "";
+                        messageField.classList.remove('error');
+                        messageField.classList.remove('proceed');
+                    }, 5500);
 
+                } else {
+                    setTimeout(function() { 
+                        messageField.innerHTML= "Error! language not selected"
+                        messageField.classList.remove('proceed');
+                        messageField.classList.add('error');
+                    }, 0);
+        
+                    setTimeout(function() { 
+                        messageField.innerHTML = "Please select any language";
+                        messageField.classList.remove('error');
+                        messageField.classList.add('proceed');
+                    }, 3000);
+
+                    setTimeout(function() { 
+                        messageField.innerHTML = "";
+                        messageField.classList.remove('error');
+                        messageField.classList.remove('proceed');
+                    }, 5750);
+        
+                }
+        
             } else {
                 setTimeout(function() { 
-                    messageField.innerHTML= "Error! language not selected"
+                    messageField.innerHTML= "Error! special characters entered"
                     messageField.classList.remove('proceed');
                     messageField.classList.add('error');
                 }, 0);
-    
+
                 setTimeout(function() { 
-                    messageField.innerHTML = "Please select any language";
+                    messageField.innerHTML = "Please enter alphabets only";
                     messageField.classList.remove('error');
                     messageField.classList.add('proceed');
                 }, 3000);
@@ -88,18 +109,17 @@
                     messageField.classList.remove('error');
                     messageField.classList.remove('proceed');
                 }, 5750);
-    
-            }
-    
+        
+            } 
         } else {
             setTimeout(function() { 
-                messageField.innerHTML= "Error! special characters entered"
+                messageField.innerHTML= "Error! name not entered"
                 messageField.classList.remove('proceed');
                 messageField.classList.add('error');
             }, 0);
 
             setTimeout(function() { 
-                messageField.innerHTML = "Please enter alphabets only";
+                messageField.innerHTML = "Please enter the name";
                 messageField.classList.remove('error');
                 messageField.classList.add('proceed');
             }, 3000);
@@ -109,28 +129,8 @@
                 messageField.classList.remove('error');
                 messageField.classList.remove('proceed');
             }, 5750);
-    
-        } 
-    } else {
-        setTimeout(function() { 
-            messageField.innerHTML= "Error! name not entered"
-            messageField.classList.remove('proceed');
-            messageField.classList.add('error');
-        }, 0);
 
-        setTimeout(function() { 
-            messageField.innerHTML = "Please enter the name";
-            messageField.classList.remove('error');
-            messageField.classList.add('proceed');
-        }, 3000);
-
-        setTimeout(function() { 
-            messageField.innerHTML = "";
-            messageField.classList.remove('error');
-            messageField.classList.remove('proceed');
-        }, 5750);
-
-    }
+        }
    
        
         localStorage.setItem("names", JSON.stringify(greetFactory.namesAdded()));
