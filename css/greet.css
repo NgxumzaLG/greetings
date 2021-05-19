@@ -94,7 +94,7 @@ input {
     text-align: center;
 }
 
-.greetBtn, .refreshBtn, .unitTestingBtn{
+.greetBtn, .refreshBtn, .unitTestingBtn {
     width: 120px;
     height: auto;
     padding: 5px;
@@ -105,7 +105,7 @@ input {
     border-radius: 5px;
     background-color: transparent;
 }
-.greetBtn:hover, .refreshBtn:hover, .unitTestingBtn:hover{
+.greetBtn:hover, .refreshBtn:hover, .unitTestingBtn:hover {
     transform: scale(1.1);
 }
 

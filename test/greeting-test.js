@@ -17,7 +17,7 @@ describe('Greet exercise' , function(){
         it('It should return "Lukhanyo", once Lukhanyo has been entered from the textbox' , function(){
             let greetExercise = greeting();
 
-            greetExercise.setName('lukhanyo');
+            greetExercise.setName('LUKHANYO');
             assert.equal('Lukhanyo', greetExercise.getName());
 
         });

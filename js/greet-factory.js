@@ -3,7 +3,7 @@ function greeting(namesData) {
     var theName = "";
     var storeNames = namesData || {};
     var counter = 0;
-    const RegExp = /[A-Za-z]/;
+    const RegExp = /^[A-Za-z]+$/;
 
     function setName(myName) {
         if (myName !== "" ) {
@@ -19,7 +19,7 @@ function greeting(namesData) {
 
     function greetMe(checkedLanguage) {
             if (checkedLanguage === "english") {
-                return "Hello, " + getName() ;
+                return "Hello, " + getName();
  
             } else if (checkedLanguage === "afrikaans") {
                 return "Hallo, " + getName();
@@ -38,7 +38,7 @@ function greeting(namesData) {
                     storeNames[strName] = 1;
                     counter++;
                     
-                }else {
+                } else {
                     storeNames[strName]++;
 
                 }

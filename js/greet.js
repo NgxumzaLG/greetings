@@ -9,14 +9,14 @@
 
 //add an event listener for when buttons are pressed
     greetButton.addEventListener('click', greetUser);
-    refreshButton.addEventListener('click', refreshPage)
+    refreshButton.addEventListener('click', refreshPage);
 
 // add functions for the events
     
     var strCheckedRadioBtn = "";
     var strNames = "";
     let  namesGreeted; 
-    const RegExp = /[A-Za-z]/;
+    const RegExp = /^[A-Za-z]+$/;
 
     if (localStorage['names']) {
         namesGreeted = JSON.parse(localStorage.getItem("names"));
@@ -51,7 +51,6 @@
        greetFactory.addNames(strNames, strCheckedRadioBtn);
 
        
-    // console.log(textboxName.value, checkedRadioBtn.value);
         if (strNames !== "") {
             if (strNames.match(RegExp)) {
                 if ( strCheckedRadioBtn !== '') {
@@ -156,9 +155,6 @@
         }, 0);
 
         setTimeout(function() { 
-            // messageField.innerHTML = "";
-            // messageField.classList.remove('error');
-            // messageField.classList.remove('proceed');
             location.reload();
         }, 2500);
 
