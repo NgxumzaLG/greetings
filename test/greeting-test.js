@@ -62,7 +62,7 @@ describe('Greet exercise' , function(){
             assert.deepEqual({Lusanda: 1}, greetExercise.namesAdded());
 
         });
-        it("Shouldn't add Lusanda if the name is already in my object but rather increment the value of it to 2." , function(){
+        it("Shouldn't add Lusanda if the name is already in my object but rather increment the value of it to 3." , function(){
             let greetExercise = greeting();
 
             greetExercise.addNames('lusanDA', 'english');
